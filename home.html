@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="name" content="CMS Dashboard">
+        
+        <title>
+            Dashboard
+        </title>
+    
+        <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+
+        <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    	<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+
+
+                // var obj={firstName:$('#coursename').val()};
+
+// $("#CID").append('<p></p>'+obj.firstName);
+
+// $("#CID").append('<hr>');
+
+
+$.get("/student-info", function(info){
+
+
+var data=JSON.parse(info);
+console.log(data.uname);
+$("#name").append('<p></p>'+data.Name);
+$("#reg_no").append('<p></p>'+data.reg_no);
+$("#st_name").append('<p></p>'+data.Name);
+$("#course").append('<p></p>'+data.course);
+$("#CGPA").append('<p></p>'+data.CGPA);
+$("#batch").append('<p></p>'+data.batch);
+
+
+});
+
+                // $(button).click(function(){
+                //     var ID = "#"+$(this.ID());
+                //     $('html,body').animate({
+                //         scrollTop: $(ID).offset().top});   
+                // })
+
+
+                    
+                
+                
+                $("#CID").append('<p><b>Course ID</b></p><hr>');
+                $("#CNAME").append('<p><b>Course Name</b></p><hr>');
+                
+
+                    //course reg
+
+                $("#search").click(function(){
+                    var obj={firstName:$('#coursename').val()};
+
+                    $("#CID").append('<p></p>'+obj.firstName);
+
+                    $("#CID").append('<hr>');
+
+
+                    $.post("/submit-student-data",obj, function(item2){
+
+
+                    course=JSON.parse(item2);
+
+                    $("#CNAME").append('<p></p>'+course.firstName);
+                    // $("#CNAME").append('<p></p>'+course.lastName);
+                        
+                    $("#CNAME").append('<hr>');
+
+    
+                    });
+                });
+
+          });
+        </script>
+
+    </head>
+    
+
+    <body>
+        <header>
+            
+            <nav id="header-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+                <div class="container-fluid">
+                    <a href="https://www.nust.edu.pk" id="nav-logo" class="navbar-brand pull-left">
+                        <img  id="logo-img" src="./images/NUST-50.png" width="50px" height="50px" alt="NUST LOGO">
+                    </a>
+    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                  
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul id="nav-list" class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                            <button class="nav-link btn btn-outline-dark btn-floating m-1 active"  onClick="window.location.reload();" role="button">Home <i class="fas fa-home"></i></button>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-dark btn-floating m-1" href="#lms" role="button">Student Info <i class="fas fa-info"></i></a>
+                            </li>
+
+    
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-dark btn-floating m-1" href="#lms" role="button">Course Registration <i class="fas fa-registered"></i></a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-dark btn-floating m-1" href="./faculty.html" target="_blank " role="button">Faculty <i class="fas fa-chalkboard-teacher"></i></a>
+                            </li>
+    
+    
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-dark btn-floating m-1" href="#contact-us" role="button">Contact Us <i class="fas fa-phone"></i></a>
+                            </li>
+    
+                        </ul>
+    
+                    </div>
+                </div>
+                
+            </nav>
+
+        </header>
+
+        <div class="container-fluid" id="main-content">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container-fluid">
+                    <img id="jumbotron-img" src="./images/img_bg_6.jpg" alt="banner" class="img-responsive">
+                    <div id="jumbotron-text" class="centered text-dark">NUST - Learning Managment System</div>
+                    <h1 id="lms" class="display-4">Welcome to LMS</h1>
+                </div>
+            </div>
+
+            
+            <div id="main" class="container-fluid">
+                <div class="row">
+                    <div id="box1" class="col-md-6">
+                        <h2 id="student-info">
+                            Student Info
+                        </h2>
+                        <!-- Student Profile -->
+                        <div class="student-profile py-4">
+                            <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                <div class="card shadow-sm">
+                                    <div id="hod-div" class="card-header bg-transparent text-center">
+                                    <img id="hod" class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
+                                    <h3 id="name"></h3>
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                                <div class="col-lg-8">
+                                <div class="card shadow-sm">
+                                    <div class="card-header bg-transparent border-0">
+                                    <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                                    </div>
+                                    <div class="card-body pt-0">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                        <th width="30%">Registration No</th>
+                                        <td width="2%">:</td>
+                                        <td id="reg_no"></td>
+                                        </tr>
+                                        <tr>
+                                        <th width="30%">Name</th>
+                                        <td width="2%">:</td>
+                                        <td id="st_name"></td>
+                                        </tr>
+                                        <tr>
+                                        <th width="30%">Course</th>
+                                        <td width="2%">:</td>
+                                        <td id="course"></td>
+                                        </tr>
+                                        <tr>
+                                        <th width="30%">CGPA</th>
+                                        <td width="2%">:</td>
+                                        <td id="CGPA"></td>
+                                        </tr>
+                                        <tr>
+                                        <th width="30%">Batch</th>
+                                        <td width="2%">:</td>
+                                        <td id="batch"></td>
+                                        </tr>
+                                    </table>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+  
+                    </div>
+                    <div id="box2" class="col-md-6">
+                        <h2 id="courses">
+                            Courses
+                        </h2>
+                        <div class="ajax">
+                            Course ID <input id="coursename" name="firstName" type="text" placeholder="e.g. CS-12*" /> 
+                            <br>
+                            <br>
+                            <button id="search">ADD</button>
+                        </div>
+                        <h3>Recently enrolled courses</h3>
+                        <div id="CID">
+                           
+                        </div>   
+                        <div id="CNAME">
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                
+
+                <div class="row">
+                    <div id="box3" class="overflow-auto col-md-6">
+                        <h2>
+                            Faculty
+                        </h2>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card shadow-sm">
+                                        <div id="hod-div" class="card-header bg-transparent text-center">
+                                        <img id="hod" class="profile_img" src="hod.jpg" alt="">
+                                        <h3 id="name">Dr. Adnan Ahmed Khan</h3>
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-8">
+                                        
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
+                                        <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
+                                        <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
+                                    </div>
+                                    <div>
+                                        <p>The rector of the college is Lieutenant General (Retd) Muhammad Asghar (pictured). MCS has about seventy faculty members who are responsible for teaching both graduate and undergraduate courses. Dr. Adnan Ahmed Khan heads the Department of Computer Software Engineering.</p>
+                                    </div>
+                                    <button id="faculty" type=submit onclick="window.open('Faculty.html'); return true;">More about faculty members</button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                
+                <div id="box4" class="col-md-6">
+                    <img class="profile_img" src="dept.jpg" alt="">
+                    <h2>Department of Computer Software Engineering, MCS, NUST</h2>
+                    <p>The Department of Computer Software Engineering at MCS is one of the first Computing Departments in Pakistan which started Undergraduate and Postgraduate courses in Software Engineering. Its Bachelor of Engineering in Software Engineering is accredited by Pakistan Engineering Council (PEC) and so far 20 batches have graduated from this prestigious department. We are also the first Computing Department in Pakistan which started postgraduate programmes in Software Engineering.</p>
+                    <button id="download"><a href="SCHEDULE%20.pdf" target="_blank" style="color:black;">Download Time Table as PDF</a></button>
+                    <button id="open" type=submit onclick="window.open('SCHEDULE.html'); return true;">Open Time Table</button>
+                </div>
+            </div>
+
+        <footer class="panel-footer text-center text-white">
+            <div class="footer-top">
+                <div class="container-fluid p-4">
+                    <h4>Follow us</h4>
+
+                    <section class="mb-4">                    
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-facebook"></i
+                        ></a>
+                                    
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-twitter"></i
+                        ></a>
+                        
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-google"></i
+                        ></a>
+                        
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-instagram"></i
+                        ></a>
+                        
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-linkedin-in"></i
+                        ></a>
+                        
+                    </section>
+                
+                    <section class="">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                                <h4 class="">Quick Links</h4>
+                    
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <a href="#" class="text-white">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-white">Student Info</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-white">My Courses</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-white">Course Registration</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-white">Faculty</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-white">Department Tour</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-white">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                                <h4 class="">About Us</h4>
+                    
+                                <p>The history of NUST LMS Portal spans over a period of 3 years since it was introduced in
+                                NUST Islamabad. NUST School of Electrical Engineering and Computer Science (SEECS) started
+                                using Moodle as LMS from spring of 2008. The deployment of Learning Management System for NUST 
+                                H-12 campus was approved in May 2010. In a very short time LMS project has moved from being 
+                                just a pilot project to becoming the integral part of the NUST experience.</p>
+                            </div>
+                    
+                            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                                <h4 id="contact-us" class="">Contact Us</h4>
+                                
+                                <ul class="list-unstyled mb-0">
+                                    <li>NUST-LMS @ SEECS NUST H-12 Islamabad</li>
+                                    <li>Phone: +925190852152</li>
+                                    <li>E-mail: <a href="mailto: lms@seecs.edu.pk">lms@seecs.edu.pk</a></li>
+                                </ul>
+
+                            </div>
+                            
+                        </div>
+                        
+                    </section>
+                    
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="text-center p-3">
+                    <div>Designed by NUST &copy; 2021. All Rights Reserved.</div>
+                </div>
+            </div>
+            
+        </footer>
+        
+
+
+        
+
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  		<script src="./node_modules/popper.js/dist/popper.min.js"></script>
+  		<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

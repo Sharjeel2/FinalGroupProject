@@ -1,0 +1,250 @@
+body {
+    font-family: 'Roboto', Sans-Serif;
+    font-size: 16px;
+    text-align: center;
+    background-color: #e7e6e1;
+}
+  
+a {
+    color: #D14836;
+    text-decoration: none;
+    font-family: 'Oxygen', sans-serif;
+}
+  
+a:hover {
+    color: #FF0000;
+    text-decoration: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+  
+#header-nav {
+    background-color: #314e52; /*#49c5b6; /*#007f6d;  #D14836  #181726*/
+    border-radius: 0;
+    border: 0;
+}
+  
+#logo-img {
+    margin: 20px 5px 10px 0;
+}
+
+nav a:hover {
+    box-shadow: none;
+}
+
+#nav-list a {
+    color: #fff;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+  
+#nav-list a:hover {
+    background: #e7e6e1;
+    color: #000;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+  
+/* #nav-list a span {
+    font-size: 1.8em;
+}
+  
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+    border: 2px solid #051a37;
+}
+  
+.navbar-header button.navbar-toggle {
+    clear: both;
+    margin-top: -30px;
+}
+  
+.navbar-header button.navbar-toggle:hover {
+    background-color: #D14836;
+} */
+
+#main-content {
+    margin-top: 80px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#main {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.jumbotron {
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+#jumbotron-img {
+    width: 95%;
+    height: 500px;
+    position: relative;
+    text-align: center;
+    color: white;
+    opacity: 0.75;
+}
+
+#jumbotron-text {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+}
+
+.panel-footer {
+    background-color: #314e52;
+    margin-top: 25px;
+}
+
+#box1, #box2, #box3, #box4 {  
+    border: 5px solid grey; border-radius: 25px; padding: 25px;
+    height: 450px;
+}
+
+/* #box1, #box3 {
+    border-left: 5px solid grey;
+}
+
+#box2, #box4 {
+    border-right: 5px solid grey;
+}
+
+#box1, #box2 {
+    border-top: 5px solid grey;
+}
+
+#box3, #box4 {
+    border-bottom: 5px solid grey;
+} */
+
+
+/* body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: #000;
+  } */
+  
+  .student-profile .card {
+    border-radius: 10px;
+  }
+  
+  .student-profile .card .card-header .profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: auto;
+    border: 10px solid #ccc;
+    border-radius: 50%;
+  }
+  
+  .student-profile .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .student-profile .card p {
+    font-size: 16px;
+    color: #000;
+  }
+  
+  .student-profile .table th,
+  .student-profile .table td {
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #000;
+  }  
+  
+  
+  
+  #box3 .card {
+    border-radius: 10px;
+  }
+  
+  #box3 .card .card-header .profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid #ccc;
+    border-radius: 50%;
+  }
+  
+  #box3 .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  #box3 .card-body p {
+    font-size: 16px;
+    color: #000;
+    text-align: left;
+  }
+  
+
+  .ajax {
+      margin: 10px;
+        padding: 10px;
+        border: 5px solid blue;
+        text-align: center;
+  }
+  #coursename {
+      text-align: center;
+      width: 30%;
+  }
+
+  /* #disp{
+      float: right;
+  }
+
+  .table {
+      border: 2px solid blue;
+      border-collapse: collapse;
+      padding: 5px;
+      text-align: center;
+      margin: 5px;
+  } */
+
+  #hod-div {
+      height: 300px;
+      position: relative;
+  }
+
+  #hod {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+  }
+
+  #name {
+      margin-top: 200px;
+  }
+  #CID {
+    border: 2px solid black;
+    width: 50%;
+    float: left;
+    margin-bottom: 50px;
+  }
+  #CNAME {
+    border: 2px solid black;
+    width: 50%;
+    float: right;
+    margin-bottom: 50px;
+  }
+  hr {
+    border: 1px solid black;
+  }
+  
+  /* #CID p {
+    border: 2px solid black;
+  }
+  #CNAME p {
+    border: 2px solid black;
+  } */
+
+  #box2{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
